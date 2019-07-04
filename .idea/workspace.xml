@@ -2,6 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09d1a4fd-c5e0-46f6-960f-62105741d52c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/config.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick-theme.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick-theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/js/slick/slick.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/delete.php" afterDir="false" />
@@ -12,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/admin/js/send.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/js/send.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/upload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/receive.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/receive.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -275,12 +290,12 @@
       <workItem from="1561905405613" duration="2550000" />
       <workItem from="1562147943886" duration="25277000" />
       <workItem from="1562221616536" duration="93000" />
-      <workItem from="1562221883514" duration="1964000" />
+      <workItem from="1562221883514" duration="2249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139452000" />
+    <option name="totallyTimeSpent" value="139737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1293" height="773" extended-state="6" />
