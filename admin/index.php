@@ -10,7 +10,7 @@ header('Content-Type: text/html; charset=UTF-8');
 <title>TOP画面</title>
 <style>
     .container {
-        width: 600px;
+        width: 800px;
     }
     .box{
         overflow:hidden;
@@ -19,14 +19,14 @@ header('Content-Type: text/html; charset=UTF-8');
         background-color: #D3D3D3;
         padding: 20px;
         margin: 5px;
-        width: 300px;
+        width: 400px;
         float:left;
     }
     .right {
         background-color: #ADFF2F;
         padding: 20px;
         margin: 5px;
-        width: 300px;
+        width: 400px;
         float:right;
 
     }

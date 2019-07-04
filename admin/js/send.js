@@ -4,15 +4,13 @@
         var methods = {                                     　　　　      　  ///変数「method」に各methodを代入
             init : function( options ) {
                 settings = $.extend({
-                    'uri'   : 'ws://localhost:8080',
+                    'uri'   : 'ws://172.20.10.2:8080',
                     'conn'  : null,
-                    'message' : '#message',
                     'display' : '#display'
                 }, options);
                 $(settings['message']).keypress( methods['checkEvent'] );　　///キーボードが押されるとcheckEventを行う
                 $(this).chat('connect');
             },
-
             checkEvent : function ( event ) {
                 if (event && event.which == 13) {　　　　　　　　　　　　　　///エンターキーを押すとメッセージが送信される
                     var message = $(settings['message']).val();
@@ -24,7 +22,6 @@
                     }
                 }
             },
-
 ///接続に関する設定
             connect : function () {
                 if (settings['conn'] == null) {
@@ -35,7 +32,6 @@
                     settings['conn'].onerror = methods['onError'];
                 }
             },
-
 ///接続イベント
             onOpen : function ( event ) {
                 console.log('Send.js', event)
@@ -51,19 +47,16 @@
 
                 }
             },
-
 ///エラーイベント
             onError : function(event) {
                 $(this).chat('drawText','エラー発生!','left');　　　　　///エラーが発生したら左側に表示
             },
-
 ///切断イベント
             onClose : function(event) {
                 $(this).chat('drawText','サーバと切断','left');　　　　///切断されたら左側に'サーバーと切断'を表示
                 settings['conn'] = null;
                 setTimeout(methods['connect'], 1000);　　　　///1秒毎に接続を行う
             },
-
 ///表示の設定
             drawText : function (message, align='left') {
                 if ( align === 'left' ) {
@@ -74,9 +67,7 @@
                 var box = $('<div class="box"></div>').html(inner);
                 $('#chat').prepend(box);
             },
-
         }; // end of methods
-
         $.fn.chat = function( method ) {
             if ( methods[method] ) {
                 return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
@@ -87,11 +78,9 @@
             }
         } // end of function
     })( jQuery );
-
 $(function() {
     $(this).chat({
-        'uri':'ws://localhost:8080',
-        'message' : '#message',
+        'uri':'ws://172.20.10.2:8080',
         'display' : '#chat'
     });
 });

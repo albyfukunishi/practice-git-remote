@@ -48,17 +48,55 @@ while ($file = readdir($imageDir)) {
 <?php foreach ($images as $key => $image) : ?>
     <?php $file_info = pathinfo($image);?>
     <?php $img_extension = strtolower($file_info['extension']);?>
-    <?php echo $img_extension . "\n"; ?>
     <?php if ($img_extension == 'mp4'): ?>
         <video id="video<?php echo $key; ?>" src="<?php echo $image; ?>"></video>
     <?php else : ?>
         <img src="<?php echo $image; ?>">
     <?php endif; ?>
+    <button type="button" name="delete_btn" value="1" class="file_delete" target="<?php echo $image; ?>">削除</button><br>
 <?php endforeach; ?>
+<style>
+    img {
+        width: 384px;
+        height: 216px;
+    }
+    video {
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $('.file_delete').click(function() {
+        console.log('クリックされました！')
+        console.log($(this).attr("target"));
+        window.confirm("本当に削除しますか？");
+        $.ajax({
+            url:'./delete.php',
+            type:'POST',
+            data:{
+                'target':$(this).attr("target")
+            }
+        })
+        // Ajaxリクエストが成功した時発動
+            .done( (data) => {
+                console.log(data);
+                window.location.reload()
+            })
+            // Ajaxリクエストが失敗した時発動
+            .fail( (data) => {
+                window.alert("削除に失敗しました");
+                console.log(data);
+            })
+            // Ajaxリクエストが成功・失敗どちらでも発動
+            .always( (data) => {
+            });
+    })
+</script>
 </body>
 </html>
