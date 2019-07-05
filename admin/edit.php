@@ -53,6 +53,27 @@ while ($file = readdir($imageDir)) {
     <?php else : ?>
         <img src="<?php echo $image; ?>">
     <?php endif; ?>
+    <form>
+        <div class="element">
+            <label><?php echo $image; ?></label>
+            <input type="data" i value="1">
+        </div>
+        <div class="change">↑↓</div>
+        <div class="element">
+            <label for="banana"><?php echo $image; ?></label>
+            <input type="text" value="2">
+        </div>
+        <div class="change">↑↓</div>
+        <div class="element">
+            <label for="cat"><?php echo $image; ?></label>
+            <input type="text" value="3">
+        </div>
+        <div class="change">↑↓</div>
+        <div class="element">
+            <label for="dog"><?php echo $image; ?></label>
+            <input type="text" value="4">
+        </div>
+    </form>
     <button type="button" name="delete_btn" value="1" class="file_delete" target="<?php echo $image; ?>">削除</button><br>
 <?php endforeach; ?>
 <style>
@@ -97,6 +118,24 @@ while ($file = readdir($imageDir)) {
             .always( (data) => {
             });
     })
+    $(function () {
+        $('div.change').click(function() {
+            // 上要素の内容取得
+            var prev_element = $(this).prev('div');
+            // 下要素の内容取得
+            var next_element = $(this).next('div');
+
+            // 設定
+            $(this).before(next_element);
+            $(this).after(prev_element);
+
+            // 入力欄に採番(1番目に1、2番目に2）
+            $('div.element').each(function(i){
+                // デフォルトでvalueが設定されている場合はattr('value', value)を併用
+                $(this).find('input').attr('value', i + 1).val(i + 1);
+            });
+        });
+    });
 </script>
 </body>
 </html>

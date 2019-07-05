@@ -1,6 +1,12 @@
 (function($){
     var settings = {};
-
+    var displayFunc = function (src) {
+        if (/\.(mp4|mov|mpeg|mpg|avi)$/.test(src)) {
+            $('<video />').attr('src', src).prop('autoplay', true).prop('loop', true).prop('muted', true).appendTo('#container')
+        } else if (/\.(jpg|jpeg|png|gif)$/.test(src)) {
+            $('<img />').attr('src', src).appendTo('#container')
+        }
+    };
     var methods = {
         init : function( options ) {
             settings = $.extend({
@@ -8,7 +14,7 @@
                 'conn'  : null,
                 'display' : '#display',
             }, options);
-            $(this).chat('connect');
+            $(this).container('connect');
         },
         connect : function () {
             if (settings['conn'] == null) {
@@ -31,7 +37,7 @@
             console.log(`メッセージを受信した！`);
             if (event && event.data) {
                 // TODO 画像か動画かを判断する分岐
-                $(this).chat('display',event.data,'left');
+                $(this).container('display',event.data,'left');
                 // display(event.data)
             }
         },
@@ -46,17 +52,9 @@
          * @param message
          * @param align
          */
-        display : function (src) {
-            if (/\.(mp4|mov|mpeg|mpg|avi)$/.test(src)) {
-                console.log('test')
-                $('<video />').attr('src', src).prop('autoplay', true).prop('loop', true).prop('muted', true).appendTo('#chat')
-            } else if (/\.(jpg|jpeg|png|gif)$/.test(src)) {
-                console.log('テスト')
-                $('<img />').attr('src', src).appendTo('#chat')
-            }
-        },
+        display : displayFunc,
     }; // end of methods
-    $.fn.chat = function( method ) {
+    $.fn.container = function( method ) {
         if ( methods[method] ) {
             return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
         } else if ( typeof method === 'object' || ! method ) {
@@ -67,9 +65,9 @@
     } // end of function
 })( jQuery );
 $(function() {
-    $(this).chat({
+    $(this).container({
         'uri':'ws://172.20.10.2:8080',
-        'display' : '#chat'
+        'display' : '#container'
     });
 });
 
