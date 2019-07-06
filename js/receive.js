@@ -1,8 +1,8 @@
-(function($){
+(function($) {
     var settings = {};
     var displayFunc = function (src) {
         if (/\.(mp4|mov|mpeg|mpg|avi)$/.test(src)) {
-            $('<video />').attr('src', src).prop('autoplay', true).prop('loop', true).prop('muted', true).appendTo('#container')
+            $('<video />').attr('src', src).prop('autoplay', true).prop('loop', true).prop('muted', true).appendTo('#container').wrap('<section class="display-media --background">',).wrap('<div class="slide-items">').wrap('<li class="slide-item" >').data("<li />","data-slidetime", "10000")
         } else if (/\.(jpg|jpeg|png|gif)$/.test(src)) {
             $('<img />').attr('src', src).appendTo('#container')
         }
@@ -53,6 +53,7 @@
          * @param align
          */
         display : displayFunc,
+
     }; // end of methods
     $.fn.container = function( method ) {
         if ( methods[method] ) {
